@@ -19,9 +19,9 @@ body {
   margin: 0;
 }
 
-.brand img {
-  width: 30px;
-  margin: 0;
+.brand a {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .sub-greetings p {
@@ -33,13 +33,13 @@ body {
   margin: 0;
 }
 
-.backround-menu-container {
+.background-menu-container {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background: #ecebeb;
 }
 
-.backround-menu-container .card-menu-btn {
+.background-menu-container .card-menu-btn {
   background-color: #ffffff;
   border-radius: 10px;
   color: #333333;
@@ -51,25 +51,25 @@ body {
   text-decoration: none;
 }
 
-.backround-menu-container .card-menu-btn:hover {
+.background-menu-container .card-menu-btn:hover {
   cursor: pointer;
 }
 
-.backround-menu-container .card-menu-btn:active {
+.background-menu-container .card-menu-btn:active {
   background: linear-gradient(18deg, #5a8a99 0%, #b36969 100%);
   color: #ffffff;
 }
 
-.backround-menu-container .card-menu-btn i {
+.background-menu-container .card-menu-btn i {
   font-size: 30px;
 }
 
-.backround-menu-container .card-menu-btn .menu-btn-title {
+.background-menu-container .card-menu-btn .menu-btn-title {
   font-size: 12px;
   font-weight: 600;
 }
 
-.backround-menu-container .card-menu-btn .menu-notification {
+.background-menu-container .card-menu-btn .menu-notification {
   position: relative;
   float: right;
   top: -40px;
@@ -85,10 +85,113 @@ body {
   font-weight: bold;
 }
 
-.backround-menu-container .card-menu-btn .menu-notification-null {
+.background-menu-container .card-menu-btn .menu-notification-null {
   position: relative;
   width: 20px;
   height: 20px;
+}
+
+.background-menu-container .search_field {
+  width: 100%;
+}
+
+.background-menu-container .search_field .search_field_icon {
+  position: absolute;
+  padding: 8.8px;
+  min-width: 40px;
+}
+
+.background-menu-container .search_field .search_field_input {
+  width: 100%;
+  border-radius: 5px;
+  padding: 4px 30px;
+  border: 0px;
+  font-family: "Lato", sans-serif;
+}
+
+.background-menu-container .search_field .search_field_input:focus {
+  outline: 0.5px #888888 solid;
+}
+
+.background-menu-container .news-title h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #333333;
+}
+
+.background-menu-container .news-lists a {
+  text-decoration: none;
+  color: #333333;
+  background-color: #F8F9FA;
+  border-radius: 4px;
+  padding: 9px 15px;
+  font-family: "Open Sans", sans-serif;
+  height: 110px;
+  line-height: 23px;
+  overflow: hidden;
+}
+
+.background-menu-container .news-lists a .newsContent-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2px 4px;
+}
+
+.background-menu-container .news-lists a .newsContent-container .content-text {
+  padding: 0;
+  margin: 0;
+}
+
+.background-menu-container .news-lists a .newsContent-container .content-text .content-title {
+  font-size: 16px;
+}
+
+.background-menu-container .news-lists a .newsContent-container .content-text .content-subtitle {
+  font-size: 12px;
+}
+
+.background-menu-container .news-lists a .newsContent-container .content-text .content-by {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.background-menu-container .news-lists a .newsContent-container .content-text .content-time {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.background-menu-container .news-lists a .newsContent-container .content-img {
+  margin: 0;
+}
+
+.background-menu-container .news-lists a .newsContent-container .content-img img {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 0;
+  width: 90px;
+  height: 90px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.background-menu-container .news-lists a:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.background-menu-container .news-lists a:active {
+  background: linear-gradient(18deg, #5a8a99 0%, #b36969 100%);
+  color: #ffffff;
 }
 
 .copyright {

@@ -27,10 +27,10 @@
             </div>
         </div>
     </div>
-    <div class="container backround-menu-container">
+    <div class="container background-menu-container">
         <div class="row mx-2 mt-2">
             <div class="col col-4 mt-4">
-                <a href="#" class="card-menu-btn d-flex flex-column">
+                <a href="{{ route('news.index') }}" class="card-menu-btn d-flex flex-column">
                     <i class="bx bxs-news"></i>                    
                     <span class="menu-notification">0</span>
                     <span class="menu-btn-title">Berita</span>

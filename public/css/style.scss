@@ -37,9 +37,9 @@ body {
         font-weight: 600;        
         margin: 0;
     }
-    img {
-        width: 30px;        
-        margin: 0;
+    a {
+        text-decoration: none;
+        color: $light;
     }
 }
 
@@ -54,7 +54,7 @@ body {
     }     
 }
 
-.backround-menu-container {
+.background-menu-container {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background: $semilight;
@@ -109,6 +109,104 @@ body {
             height: 20px;
         }
     }
+
+    //search_field
+    .search_field {
+      width: 100%;      
+
+      .search_field_icon {        
+        position: absolute;         
+        padding: 8.8px;
+        min-width: 40px;
+
+      }
+
+      .search_field_input {
+        width: 100%;
+        border-radius: 5px;
+        padding: 4px 30px;
+        border: 0px;
+  
+        font-family: $lato;
+  
+        &:focus {
+          outline: 0.5px $semidark solid;
+        }
+      }
+    }
+
+    // News-List
+    .news-title {
+      h1 {
+        font-family: $poppins;
+        font-weight: 600;
+        font-size: 20px;
+        color: $dark;
+      }
+    }
+    .news-lists {      
+      a {
+        text-decoration: none;
+        color: $dark;
+        background-color: $semibrightlight;      
+        // border-bottom: 1px solid $semidark;
+        border-radius: 4px;          
+        padding: 9px 15px;                
+        font-family: $opensans;        
+
+        height: 110px;
+        line-height: 23px;
+        overflow: hidden;
+
+        .newsContent-container {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          padding: 2px 4px;
+
+          .content-text{            
+            padding: 0;
+            margin: 0;            
+            .content-title {
+              font-size: 16px;
+            }
+            .content-subtitle {
+              font-size: 12px;
+            }
+            .content-by {              
+              font-size: 12px;                
+              opacity: 0.6;                 
+            }
+            .content-time {
+              font-size: 12px;              
+              opacity: 0.6                 
+            }      
+          }
+          .content-img {                        
+            margin: 0;                
+
+            img {                
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+              border-radius: 5px;
+              padding: 0;      
+              width: 90px;            
+              height: 90px;
+              object-fit: cover;
+            }                      
+          }
+        }
+
+        &:hover {
+            cursor: pointer;            
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+        }
+        &:active {
+            background: $gradient-ppit;
+            color: $light;                                                
+        }                        
+      }
+    }
+
 }
 
 .copyright {    
