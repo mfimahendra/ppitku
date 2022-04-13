@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingPageController;
@@ -23,4 +24,20 @@ Route::get('/', [LandingPageController::class, 'index'])->name('landingPage.inde
 /**
  * News Page
  */
-Route::get('/news', [ContentController::class, 'index'])->name('news.index');
+Route::get('/content/news', [ContentController::class, 'news'])->name('content.news');
+Route::get('/content/register', [ContentController::class, 'register'])->name('content.register');
+Route::get('/content/loker', [ContentController::class, 'register'])->name('content.register');
+
+/**
+ * Admin
+ */
+Route::group(['prefix' => 'admin'],function(){    
+    Route::get('/content/news', [ContentController::class, 'adminNews'])->name('admin.news');
+    Route::get('/content/register', [ContentController::class, 'adminRegister'])->name('admin.register');
+    Route::get('/content/loker', [ContentController::class, 'adminLoker'])->name('admin.loker');
+    
+    Route::get('/content/createForm', [ContentController::class, 'createContentForm'])->name('admin.createContentForm');
+    Route::get('/content/editForm/{id}', [ContentController::class, 'editContentForm'])->name('admin.editContentForm');
+    Route::post('/content/store', [ContentController::class, 'store'])->name('admin.contentStore');
+});
+

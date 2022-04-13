@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string("title");
             $table->string("subtitle");
+            $table->string("by");
             $table->foreignId("type_id")->constrained("types")->onUpdate('cascade')->onDelete('cascade');
             $table->string("link");
+            $table->string("image");
             $table->boolean("status");            
             $table->timestamps();
         });

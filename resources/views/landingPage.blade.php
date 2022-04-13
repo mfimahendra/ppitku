@@ -30,14 +30,14 @@
     <div class="container background-menu-container">
         <div class="row mx-2 mt-2">
             <div class="col col-4 mt-4">
-                <a href="{{ route('news.index') }}" class="card-menu-btn d-flex flex-column">
+                <a href="{{ route('content.news') }}" class="card-menu-btn d-flex flex-column">
                     <i class="bx bxs-news"></i>                    
                     <span class="menu-notification">0</span>
                     <span class="menu-btn-title">Berita</span>
                 </a>
             </div>            
             <div class="col col-4 mt-4">
-                <a href="#" class="card-menu-btn d-flex flex-column">
+                <a href="{{ route('content.register') }}" class="card-menu-btn d-flex flex-column">
                     <i class="bx bxs-file"></i>
                     <span class="menu-notification">0</span>
                     <span class="menu-btn-title">Registrasi</span>
@@ -45,9 +45,9 @@
             </div>            
             <div class="col col-4 mt-4">
                 <a href="#" class="card-menu-btn d-flex flex-column">
-                    <i class='bx bxs-envelope'></i>
-                    <span class="menu-notification-null"></span>
-                    <span class="menu-btn-title">Email</span>
+                    <i class='bx bxs-file-find' ></i>
+                    <span class="menu-notification">0</span>
+                    <span class="menu-btn-title">Info Loker</span>
                 </a>
             </div>            
             <div class="col col-4 mt-4">
