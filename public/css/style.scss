@@ -181,6 +181,12 @@ body {
               font-size: 12px;              
               opacity: 0.6                 
             }      
+            .content-status {
+              font-size: 11px;
+              color: $light;
+              padding: 1px 5px;
+              border-radius: 10px;
+            }
           }
           .content-img {                        
             margin: 0;                

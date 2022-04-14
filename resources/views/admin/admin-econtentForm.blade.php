@@ -34,7 +34,7 @@
                         <label for="content">Pengirim</label>
                         <small id="senderHelp" class="form-text text-muted">( Pengirim bisa dari Departemen PPITiongkok, atau pihak luar )</small>
                         <input class="form-control" id="content" name="by" placeholder="Masukkan Pengirim" autocomplete="off" rows="3"></input>
-                    </div>
+                    </div>                    
                     <div class="form-group mt-2">
                         <label for="category">Kategori</label>
                         <select class="form-control" id=content" name="type_id">

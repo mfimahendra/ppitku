@@ -15,8 +15,11 @@
         </div>
         <div class="row mx-1 mt-1">
             <div class="col-md-12">
-                <form action="{{ route('admin.contentStore') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+                <form action="{{ route('admin.contentUpdate' , $contents)}}" method="POST" enctype="multipart/form-data">
+                    @csrf                    
+                    <div class="div" style="display: none">
+                        <input type="text" value="{{ $contents->id }}">
+                    </div>
                     <div class="form-group mt-2">
                         <label for="title">Judul Konten</label>
                         <input type="text" class="form-control" id="title" name="title" value="{{ $contents->title }}" placeholder="Masukkan Judul Konten">
@@ -37,30 +40,33 @@
                     </div>
                     <div class="form-group mt-2">
                         <label for="category">Kategori</label>
-                        <select class="form-control" id=content" name="type_id">
-                            <option>...</option>
+                        <select class="form-control" id="content" name="type_id">                            
                             @foreach ($types as $type)
                                 <option value="{{ $type->id }}" {{ $contents->type_id == $type->id ? 'selected' : '' }}>{{ $type->type }}</option>
                             @endforeach    
                         </select>
-                    </div>
+                    </div>                    
                     <div class="form-group mt-2">
                         <label for="status">Status</label>
-                        <select class="form-control" id="status" name="status">
-                            @foreach ($status as $st)
-                                <option value="{{ $st }}" {{ $contents->status == $st[0] ? 'selected' : '' }}>{{ $st }}</option>
+                        <select class="form-control" id="status" name="status">                            
+                            @foreach ($status as $key => $st)                            
+                                <option value="{{ $key }}">{{ $st }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group mt-2">
                         <label for="image">Gambar Thumbnail</label><br>
-                        <input accept="image/*" type="file" class="form-control-file" id="imageChoosen" name="image">
-                        <img id="choosenFile" src="#" width="100px" alt="">
+                        <input accept="image/*" type="file" class="form-control-file" id="imageChoosen" value="{{ $contents->image }}" name="image">
+                        <img id="choosenFile" src="{{ url('images/' . $contents->image . ' ') }}" width="100px" alt="">                        
                     </div>
-                    <button type="submit" class="btn btn-warning mt-2 mb-2">Update</button>
-                    <a href="{{ route('admin.news')}}" class="btn btn-danger mt-2 mb-2">Delete</a>
-                    <a href="{{ route('admin.news')}}" class="btn btn-primary mt-2 mb-2">Cancel</a>
+                    <button type="submit" class="btn btn-warning mt-2 mb-2">Update</button>                                        
                 </form>
+                <form action="{{ route('admin.contentDelete', $contents->id) }}" method="POST">
+                    @csrf
+                    <button type="submit" onclick="return confirm('{{ 'Hapus Konten ' . $contents->title . '?' }} )" class="btn btn-danger mt-2 mb-2">Delete</button>
+                </form>
+                <a href="{{ route('admin.news')}}" class="btn btn-primary mt-2 mb-2">Cancel</a>                    
+                
             </div>
             <br>
             <hr>
@@ -81,6 +87,6 @@
                     if (file) {
                         choosenFile.src = URL.createObjectURL(file)
                     }
-                }
-            </script>
+                }                
+            </script>            
         @endsection

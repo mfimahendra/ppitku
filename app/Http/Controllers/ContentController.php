@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Content;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Ramsey\Collection\Map\AssociativeArrayMap;
 
 class ContentController extends Controller
 {
@@ -31,10 +32,13 @@ class ContentController extends Controller
                     ->where('type_id', '=', 2)
                     ->orderBy('contents.updated_at', 'desc')
                     ->get();
+                    
+        $types = Type::all();                    
 
         return view('econtent', [
             'title' => 'Registrasi',
-            'contents' => $register
+            'contents' => $register,
+            'types' => $types
         ]);
     }
 
@@ -61,7 +65,7 @@ class ContentController extends Controller
         $types = Type::all();
 
         return view('admin.admin-econtent', [
-            'title' => 'Berita',
+            'title' => 'Semua Berita',
             'contents' => $contents,
             'types' => $types
         ]);        
@@ -108,15 +112,18 @@ class ContentController extends Controller
                     ->leftJoin('types', 'contents.type_id', '=', 'types.id')
                     ->where('contents.id', '=', $id )
                     ->orderBy('contents.updated_at', 'desc')
-                    ->get();                
+                    ->first();                
         
-        $types = Type::all();
+        $types = Type::all();        
 
         return view('admin.admin-econtentFormEdit', [
             'title' => 'Edit Content',
-            'contents' => $contents[0],
+            'contents' => $contents,
             'types' => $types,
-            'status' => ['1' => '1 - Publish','0' => '0 - Hide']
+            'status' => [
+                '1' => 'Publish',
+                '0' => 'Hide'
+            ],            
         ]);
     }
 
@@ -148,8 +155,60 @@ class ContentController extends Controller
             $content->save();            
             $request->file('image')->move("images/", $fileName);
         } catch (\Throwable $e) {
-            $e->getMessage();
+            echo $e->getMessage();
         }
+
+        return redirect('admin/content/news');
+    }
+    
+    public function update(Request $request, $id){        
+        
+        if($request->image == null){            
+
+            try {            
+                $content = Content::where('id', $id)->update([
+                    'title' => $request->title,
+                    'subtitle' => $request->subtitle,
+                    'link' => $request->link,
+                    'by' => $request->by,
+                    'type_id' => $request->type_id,
+                    'status' => $request->status,                    
+                ]);            
+                                    
+                return redirect('admin/content/news');
+    
+            } catch (\Throwable $e) {
+                $e->getMessage();
+                return redirect('admin/content/register');
+            }
+        }else{
+            $file = $request->file('image');
+            $fileName = time() . '.' . $file->getClientOriginalExtension();  
+
+            try {            
+                $content = Content::where('id', $id)->update([
+                    'title' => $request->title,
+                    'subtitle' => $request->subtitle,
+                    'link' => $request->link,
+                    'by' => $request->by,
+                    'type_id' => $request->type_id,
+                    'status' => $request->status,
+                    'image' => $fileName
+                ]);            
+    
+                $request->file('image')->move("images/", $fileName);            
+                return redirect('admin/content/news');
+    
+            } catch (\Throwable $e) {
+                $e->getMessage();
+                return redirect('admin/content/register');
+            }
+        }                                                        
+    }            
+    
+    public function delete($id){
+        $content = Content::find($id);
+        $content->delete();
 
         return redirect('admin/content/news');
     }

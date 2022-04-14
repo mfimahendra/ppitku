@@ -9,6 +9,6 @@
         @yield('menu')
     </div>
 
-    <script type="text/javascript" src="{{ url('js/script.js') }}"></script>
+    <script defer type="text/javascript" src="{{ url('js/script.js') }}"></script>
 </body>
 

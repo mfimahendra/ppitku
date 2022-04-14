@@ -168,6 +168,13 @@ body {
   opacity: 0.6;
 }
 
+.background-menu-container .news-lists a .newsContent-container .content-text .content-status {
+  font-size: 11px;
+  color: #ffffff;
+  padding: 1px 5px;
+  border-radius: 10px;
+}
+
 .background-menu-container .news-lists a .newsContent-container .content-img {
   margin: 0;
 }

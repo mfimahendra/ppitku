@@ -26,7 +26,7 @@ Route::get('/', [LandingPageController::class, 'index'])->name('landingPage.inde
  */
 Route::get('/content/news', [ContentController::class, 'news'])->name('content.news');
 Route::get('/content/register', [ContentController::class, 'register'])->name('content.register');
-Route::get('/content/loker', [ContentController::class, 'register'])->name('content.register');
+Route::get('/content/loker', [ContentController::class, 'loker'])->name('content.loker');
 
 /**
  * Admin
@@ -39,5 +39,7 @@ Route::group(['prefix' => 'admin'],function(){
     Route::get('/content/createForm', [ContentController::class, 'createContentForm'])->name('admin.createContentForm');
     Route::get('/content/editForm/{id}', [ContentController::class, 'editContentForm'])->name('admin.editContentForm');
     Route::post('/content/store', [ContentController::class, 'store'])->name('admin.contentStore');
+    Route::post('/content/update/{id}', [ContentController::class, 'update'])->name('admin.contentUpdate');
+    Route::post('/content/delete/{id}', [ContentController::class, 'delete'])->name('admin.contentDelete');
 });
 

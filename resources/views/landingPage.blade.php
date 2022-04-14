@@ -44,7 +44,7 @@
                 </a>
             </div>            
             <div class="col col-4 mt-4">
-                <a href="#" class="card-menu-btn d-flex flex-column">
+                <a href="{{ route('content.loker') }}" class="card-menu-btn d-flex flex-column">
                     <i class='bx bxs-file-find' ></i>
                     <span class="menu-notification">0</span>
                     <span class="menu-btn-title">Info Loker</span>
