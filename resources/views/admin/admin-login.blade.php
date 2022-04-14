@@ -9,7 +9,7 @@
     
     <div class="container background-menu-container">
         <div class="table-data-container mt-5">        
-            <h2>Login Admin</h2>
+            <h2 class="mx-2">Muashok</h2>
             <form action="{{ route('loginPost') }}" method="post" class="form-container">
                 @csrf
                 <div class="form-group mb-2">
@@ -23,10 +23,10 @@
                 <button type="submit" id="login-admin" class="btn btn-primary">Login</button>
             </form>
         </div>
-    </div>
-    <br>
-    <div class="null-content" style="height: 200px">
+        <br>
+    <div class="null-content" style="height: 400px">
 
     </div>
+    </div>    
 
 @endsection

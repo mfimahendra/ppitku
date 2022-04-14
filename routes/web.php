@@ -32,8 +32,9 @@ Route::get('/content/loker', [ContentController::class, 'loker'])->name('content
 /**
  * Login Page
  */
-Route::get('/login', [AdminController::class, 'login'])->name('login');
-Route::post('/login', [AdminController::class, 'loginPost'])->name('loginPost');
+Route::get('/luogin', [AdminController::class, 'login'])->name('login');
+Route::post('/luogin', [AdminController::class, 'loginPost'])->name('loginPost');
+Route::post('/login/logout', [AdminController::class, 'logout'])->name('logout');
 
 
 /**

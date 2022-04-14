@@ -2,9 +2,10 @@
 
 @section('menu')
     <div class="container mt-3">
-        <div class="brand mt-2 mx-2 d-flex justify-content-between">
-            <h2 class="mt-1"><a href="{{ route('landingPage.index') }}"><i class='bx bx-chevron-left'></i>LogOut</a></h2>
-        </div>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf            
+            <button class="btn btn-light" type="submit"><i class='bx bx-chevron-left'></i>LogOut</button>            
+        </form>
     </div>
     <div class="container background-menu-container">
         <div class="row mx-2 mt-2">
