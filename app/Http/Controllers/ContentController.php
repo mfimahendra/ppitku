@@ -10,10 +10,10 @@ use Ramsey\Collection\Map\AssociativeArrayMap;
 class ContentController extends Controller
 {
     public function news(){
-        $contents = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.updated_at' , 'contents.image')
+        $contents = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.created_at' , 'contents.image')
                     ->leftJoin('types', 'contents.type_id', '=', 'types.id')
                     ->where('status', 1)
-                    ->orderBy('contents.updated_at', 'desc')
+                    ->orderBy('contents.created_at', 'desc')
                     ->get();       
         
         $types = Type::all();
@@ -26,11 +26,11 @@ class ContentController extends Controller
     }
 
     public function register(){
-        $register = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.updated_at' , 'contents.image')
+        $register = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.created_at' , 'contents.image')
                     ->leftJoin('types', 'contents.type_id', '=', 'types.id')
                     ->where('status', 1)
                     ->where('type_id', '=', 2)
-                    ->orderBy('contents.updated_at', 'desc')
+                    ->orderBy('contents.created_at', 'desc')
                     ->get();
                     
         $types = Type::all();                    
@@ -43,11 +43,11 @@ class ContentController extends Controller
     }
 
     public function loker(){
-        $loker = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.updated_at' , 'contents.image')
+        $loker = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.created_at' , 'contents.image')
                 ->leftJoin('types', 'contents.type_id', '=', 'types.id')
                 ->where('status', 1)
                 ->where('type_id', '=', 3)
-                ->orderBy('contents.updated_at', 'desc')
+                ->orderBy('contents.created_at', 'desc')
                 ->get();
 
         return view('econtent',[
@@ -58,9 +58,9 @@ class ContentController extends Controller
 
     public function adminNews()
     {
-        $contents = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.updated_at' , 'contents.image')
+        $contents = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.created_at' , 'contents.image')
                     ->leftJoin('types', 'contents.type_id', '=', 'types.id')                    
-                    ->orderBy('contents.updated_at', 'desc')
+                    ->orderBy('contents.created_at', 'desc')
                     ->get();
         $types = Type::all();
 
@@ -71,10 +71,10 @@ class ContentController extends Controller
         ]);        
     }
     public function adminRegister(){
-        $register = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.updated_at' , 'contents.image')
+        $register = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.created_at' , 'contents.image')
                     ->leftJoin('types', 'contents.type_id', '=', 'types.id')                    
                     ->where('type_id', '=', 2)
-                    ->orderBy('contents.updated_at', 'desc')
+                    ->orderBy('contents.created_at', 'desc')
                     ->get();
 
         return view('admin.admin-econtent', [
@@ -84,10 +84,10 @@ class ContentController extends Controller
     }
 
     public function adminLoker(){
-        $loker = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.updated_at' , 'contents.image')
+        $loker = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.created_at' , 'contents.image')
                 ->leftJoin('types', 'contents.type_id', '=', 'types.id')                
                 ->where('type_id', '=', 3)
-                ->orderBy('contents.updated_at', 'desc')
+                ->orderBy('contents.created_at', 'desc')
                 ->get();
 
         return view('admin.admin-econtent',[
@@ -108,10 +108,10 @@ class ContentController extends Controller
 
     public function editContentForm($id)
     {           
-        $contents = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.updated_at' , 'contents.image')
+        $contents = Content::select('contents.id', 'contents.title', 'contents.subtitle', 'contents.by', 'contents.type_id', 'contents.link', 'contents.status', 'contents.created_at' , 'contents.image')
                     ->leftJoin('types', 'contents.type_id', '=', 'types.id')
                     ->where('contents.id', '=', $id )
-                    ->orderBy('contents.updated_at', 'desc')
+                    ->orderBy('contents.created_at', 'desc')
                     ->first();                
         
         $types = Type::all();        

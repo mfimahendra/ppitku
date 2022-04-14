@@ -41,7 +41,7 @@
                         <span class="content-subtitle">"{{ $c->subtitle }}"</span><br>
                         <span class="content-by">{{ $c->by }}</span>
                         <span> - </span>
-                        <span class="content-time">{{ $c->updated_at->diffForHumans() }}</span><br>
+                        <span class="content-time">{{ $c->created_at->diffForHumans() }}</span><br>
                         <span class="content-status-id" style="display: none">{{ $c->status }}</span>
                         <span class="content-status"></span>
                     </div>

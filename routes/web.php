@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingPageController;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,16 +23,23 @@ use App\Http\Controllers\LandingPageController;
 Route::get('/', [LandingPageController::class, 'index'])->name('landingPage.index');
 
 /**
- * News Page
+ * Content Page
  */
 Route::get('/content/news', [ContentController::class, 'news'])->name('content.news');
 Route::get('/content/register', [ContentController::class, 'register'])->name('content.register');
 Route::get('/content/loker', [ContentController::class, 'loker'])->name('content.loker');
 
 /**
+ * Login Page
+ */
+Route::get('/login', [AdminController::class, 'login'])->name('login');
+Route::post('/login', [AdminController::class, 'loginPost'])->name('loginPost');
+
+
+/**
  * Admin
  */
-Route::group(['prefix' => 'admin'],function(){    
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){    
     Route::get('/content/news', [ContentController::class, 'adminNews'])->name('admin.news');
     Route::get('/content/register', [ContentController::class, 'adminRegister'])->name('admin.register');
     Route::get('/content/loker', [ContentController::class, 'adminLoker'])->name('admin.loker');

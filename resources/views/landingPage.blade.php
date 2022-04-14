@@ -32,21 +32,21 @@
             <div class="col col-4 mt-4">
                 <a href="{{ route('content.news') }}" class="card-menu-btn d-flex flex-column">
                     <i class="bx bxs-news"></i>                    
-                    <span class="menu-notification">0</span>
+                    <span class="menu-notification">{{ $todayNews }}</span>
                     <span class="menu-btn-title">Berita</span>
                 </a>
             </div>            
             <div class="col col-4 mt-4">
                 <a href="{{ route('content.register') }}" class="card-menu-btn d-flex flex-column">
                     <i class="bx bxs-file"></i>
-                    <span class="menu-notification">0</span>
+                    <span class="menu-notification">{{ $todayRegister }}</span>
                     <span class="menu-btn-title">Registrasi</span>
                 </a>
             </div>            
             <div class="col col-4 mt-4">
                 <a href="{{ route('content.loker') }}" class="card-menu-btn d-flex flex-column">
                     <i class='bx bxs-file-find' ></i>
-                    <span class="menu-notification">0</span>
+                    <span class="menu-notification">{{ $todayLoker }}</span>
                     <span class="menu-btn-title">Info Loker</span>
                 </a>
             </div>            
@@ -80,4 +80,12 @@
             <p>Copyright © 2022 PPI Tiongkok</p>                
         </div>
     </div>    
+
+    <script type="text/javascript">        
+        $('.menu-notification').each(function(){
+            if($(this).text() == "0"){
+                $(this).css('opacity','0');                
+            }
+        });
+    </script>
 @endsection

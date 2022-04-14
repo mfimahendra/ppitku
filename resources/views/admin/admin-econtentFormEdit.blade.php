@@ -50,7 +50,7 @@
                         <label for="status">Status</label>
                         <select class="form-control" id="status" name="status">                            
                             @foreach ($status as $key => $st)                            
-                                <option value="{{ $key }}">{{ $st }}</option>
+                                <option value="{{ $key }}" {{ $contents->status == $key ? 'selected' : '' }}>{{ $st }}</option>
                             @endforeach
                         </select>
                     </div>

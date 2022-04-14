@@ -16,7 +16,7 @@
         <div class="row mx-1 mt-1">
             <div class="col search_field">
                 <i class='bx bx-search search_field_icon'></i>
-                <input type="text" id="search_field_input" class="search_field_input" onkeyup="search()" placeholder="Cari Berita...">                
+                <input type="text" id="search_field_input" class="search_field_input" onkeyup="search()" placeholder="Cari {{ $title }}...">                
             </div>
         </div>
         <hr>    
@@ -29,7 +29,7 @@
                         <span class="content-subtitle">"{{ $c->subtitle }}"</span><br>
                         <span class="content-by">{{ $c->by }}</span>
                         <span> - </span>
-                        <span class="content-time">{{ $c->updated_at->diffForHumans() }}</span>
+                        <span class="content-time">{{ $c->created_at->diffForHumans() }}</span>
                     </div>
                     <div class="content-img">
                         <img src="{{ url('images/' . $c->image . ' ') }}" alt="">
